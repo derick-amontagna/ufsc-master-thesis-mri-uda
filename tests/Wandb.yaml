@@ -1,0 +1,50 @@
+method: grid
+metric:
+  goal: maximize
+  name: Val_Source_Acc
+parameters:
+# general configuration
+  seed:
+    value: 47
+  num_workers: 
+    value: 0
+# network related
+  G_arch:
+   value: resnet50
+  init_source_only: 
+   value: False
+  num_classes:
+   value: 2
+# data loading related
+  dataset: 
+   value: ADNI1
+  data_dir: 
+   value: C:\Users\doxda\OneDrive\Documentos\Repos\masters-degree-data-shift\data\ADNI1-T1-AD-CN\Image\Preprocess\6_step_nifti_2d
+  src_domain: 
+   value: GE
+  target_domain: 
+   value: Philips
+# Training related
+  batch_size:
+    value: 32
+  n_epoch:
+    value: 50
+  early_stop: 
+   value: 25
+  early_stop_activate: 
+   value: False
+  results_root: 
+   value: C:\Users\doxda\OneDrive\Documentos\Repos\masters-degree-data-shift\results
+# optimizer related
+  lr:
+   values: [0.0001, 0.0007, 0.001, 0.01]
+  weight_decay:
+   value: 0.0001
+# learning rate scheduler related
+  lr_scheduler: 
+   value: False
+  max_lr: 
+   value: 0.01
+# transfer related
+  algorithm: 
+   value: source-only

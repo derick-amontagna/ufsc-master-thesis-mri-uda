@@ -1,0 +1,29 @@
+# general configuration
+seed: 47
+num_workers: 2
+
+# network related
+feature_extractor: resnet50
+
+# data loading related
+data_dir: C:\Users\doxda\OneDrive\Documentos\Repos\DAMS\data\preprocess\ADNI1_T1_All_MRI\6_step_nifti_2d
+src1_domain: GE
+src2_domain: Philips
+tgt_domain: Siemens
+
+# Training related
+batch_size: 32
+n_epoch: 100
+early_stop: 15
+
+# Optimizer related
+optimizer_type: 'ADAMW'
+lr: 1e-4
+
+#learning rate scheduler related
+lr_scheduler: True
+max_lr: 0.01
+
+# Transfer loss related
+transfer_loss_weight: 10.0
+transfer_loss: erm

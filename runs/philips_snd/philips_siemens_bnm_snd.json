@@ -1,0 +1,43 @@
+{
+    "algorithm": "bayes",
+    "parameters": {
+        "n_epoch": {"type": "discrete", "values": [80]}, 
+        "lr": {"type": "discrete", "values": [0.0001]}, 
+        "weight_decay": {"type": "discrete", "values": [0.00001]}, 
+  
+        "batch_size" : {"type": "discrete", "values": [128]}, 
+  
+        "dropout" : {"type": "discrete", "values": [0.5]},  
+        "G_arch": {
+            "type": "categorical",
+            "values": ["resnet34"]
+        },
+        "init_model_name": {
+            "type": "categorical",
+            "values": ["moral_smelt_3296"]
+        },
+  
+        "source": {"type": "categorical", "values": ["ADNI1-Philips"]},
+        "target": {"type": "categorical", "values": ["ADNI1-Siemens"]},
+  
+        "algorithm": {"type": "categorical", "values": ["bnm"]},
+        "validator": {"type": "categorical", "values": ["SND"]},
+  
+        "seed": {"type": "discrete", "values": [85]},
+        "cuda": {"type": "categorical", "values": ["cuda:1"]},
+  
+        "lambda_atdoc": {"type": "float", "scaling_type": "uniform", "min": 0, "max": 1}, 
+        "k_atdoc": {"type": "discrete", "values": [5, 10, 15, 20, 25]}, 
+        "lambda_L": {"type": "float", "scaling_type": "uniform", "min": 0, "max": 1}, 
+        "lambda_bnm": {"type": "float", "scaling_type": "uniform", "min": 0, "max": 1},
+        "lambda_mcc": {"type": "float", "scaling_type": "uniform", "min": 0, "max": 1},
+        "T_mcc": {"type": "float", "scaling_type": "uniform", "min": 0.2, "max": 5}
+    },
+    "spec": {
+        "maxCombo": 10,
+        "metric": "val_target",
+        "objective": "maximize"
+    },
+    "name": "atdoc_ge_philips",
+    "trials": 1
+  }

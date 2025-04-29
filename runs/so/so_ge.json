@@ -1,0 +1,39 @@
+{
+  "algorithm": "grid",
+  "parameters": {
+      "n_epoch": {"type": "discrete", "values": [80]}, 
+      "lr": {"type": "discrete", "values": [0.0001, 0.0005, 0.001]}, 
+      "weight_decay": {"type": "discrete", "values": [0.00001]}, 
+
+      "batch_size" : {"type": "discrete", "values": [128]}, 
+
+      "dropout" : {"type": "discrete", "values": [0.5]},  
+      "G_arch": {
+          "type": "categorical",
+          "values": ["resnet34", "resnet50"]
+      },
+
+      "source": {"type": "categorical", "values": ["ADNI1-GE"]},
+      "target": {"type": "categorical", "values": ["ADNI1-Philips"]},
+
+      "algorithm": {"type": "categorical", "values": ["source-only"]},
+      "validator": {"type": "categorical", "values": ["AUC"]},
+
+      "seed": {"type": "discrete", "values": [42, 50, 85]},
+
+      "lambda_atdoc": {"type": "discrete", "values": [0]}, 
+      "k_atdoc": {"type": "discrete", "values": [0.0]}, 
+      "lambda_L": {"type": "discrete", "values": [0.0]}, 
+      "lambda_bnm": {"type": "discrete", "values": [0.0]},
+      "lambda_mcc": {"type": "discrete", "values": [0.0]},
+      "T_mcc": {"type": "discrete", "values": [0.0]}
+
+
+  },
+  "spec": {
+      "metric": "val_source",
+      "objective": "maximize"
+  },
+  "name": "SOURCE_GE",
+  "trials": 1
+}

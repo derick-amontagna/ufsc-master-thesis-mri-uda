@@ -1,0 +1,27 @@
+# general configuration
+seed: 47
+num_workers: 3
+
+# network related
+feature_extractor: resnet50
+
+# data loading related
+data_dir: data/OfficeHome
+src_domain: Art
+tgt_domain: Clipart
+
+# Training related
+n_iter_per_epoch: 500
+n_epoch: 50
+
+# Optimizer related
+lr: 3e-3
+weight_decay: 5e-4
+lr_scheduler: True
+lr_gamma: 0.0003
+lr_decay: 0.75
+momentum: 0.9
+
+# Transfer loss related
+transfer_loss_weight: 10.0
+transfer_loss: coral
